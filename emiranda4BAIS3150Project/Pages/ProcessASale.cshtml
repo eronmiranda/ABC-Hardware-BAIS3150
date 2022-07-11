@@ -1,0 +1,53 @@
+﻿@page
+@model emiranda4BAIS3150Project.Pages.ProcessASaleModel
+@{
+    ViewData["Title"] = "Process a Sale - emiranda4 BAIS3150 Project";
+}
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+<script src="~/js/Storage.js"></script>
+<h1 class="display-4">Process a Sale</h1>
+<hr class="my-4">
+<div>
+    <h4 class="alert-success">@Model.FormMessage</h4>
+    <form method="post" name="AddItemForm">
+        <input type="hidden" name="SaleString" id="SaleString" />
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="ItemCode" class="form-label">Item Name</label>
+                <input type="text" asp-for="ItemCode" class="form-control" />
+                <span asp-validation-for="ItemCode" class="text-danger"></span>
+            </div>
+            <div class="col-4">
+                <label asp-for="Quantity" class="form-label">Unit Price</label>
+                <input type="number" asp-for="Quantity" min="1" class="form-control" value="1">
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-auto">
+            <span class="alert-danger">@Model.ErrorMessage</span>
+        </div>
+        <div class="form-group row">
+            <div class="col">
+                <button class="btn btn-primary" onclick="AddItem(window.document.AddItemForm)">Add</button>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-6">
+                <table id="DisplayTable" class="table table-hover table-bordered">
+                    <caption>Item List</caption>
+                </table>
+                <script type="text/javascript">
+                    Display();
+                </script>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col">
+                <button asp-page-handler="ProcessSale" class="btn btn-primary" onclick="return confirm('Are you sure you want to process this sale?')">Process Sale</button>
+                <input type="button" value="Clear" class="btn btn-warning" onclick="Clear();" />
+            </div>
+        </div>
+    </form>
+</div>

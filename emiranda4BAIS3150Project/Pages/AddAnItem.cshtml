@@ -1,0 +1,53 @@
+﻿@page
+@model emiranda4BAIS3150Project.Pages.AddAnItemModel
+@{
+    ViewData["Title"] = "Add an Item - emiranda4 BAIS3150 Project";
+}
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+<h1 class="display-4">Add an Item</h1>
+<hr class="my-4">
+<div>
+    <h4 class="alert-success">@Model.FormMessage</h4>
+    <span class="alert-danger">@Model.ErrorMessage</span>
+    <form method="post">
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="ItemCode" class="form-label">Item Code</label>
+                <input type="text" asp-for="ItemCode" class="form-control" placeholder="ex. A12345" />
+                <span asp-validation-for="ItemCode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Description" class="form-label">Description</label>
+                <input type="text" asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="col-4">
+                <label asp-for="UnitPrice" class="form-label">Unit Price</label>
+                <input type="number" asp-for="UnitPrice" placeholder="ex. 22.00" class="form-control" />
+                <span asp-validation-for="UnitPrice" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Status" class="form-label">Status</label>
+                <input type="text" asp-for="Status" placeholder="ex. IN STOCK or OUT OF STOCK" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="col-4">
+                <label asp-for="QuantityOnHand" class="form-label">Quantity on Hand</label>
+                <input type="number" asp-for="QuantityOnHand" class="form-control" />
+                <span asp-validation-for="QuantityOnHand" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col">
+                <button asp-page-handler="AddItem" name="Submit" class="btn btn-success" onclick="return confirm('Are you sure you want to add this item?')">Add Item</button>
+                <button asp-page-handler="Clear" type="reset" class="btn btn-warning">Clear</button>
+            </div>
+        </div>
+    </form>
+</div>

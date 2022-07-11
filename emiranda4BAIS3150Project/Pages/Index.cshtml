@@ -1,0 +1,23 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Welcome to Eronielle Miranda's <br /> ABC Hardware BAIS3150 Project</h1>
+        <p class="lead">This is one of the project requirements in BAIS3150 course. I applied everything we learned from the course.</p>
+        <br />
+        <p class="lead">It contains content pages for:</p>
+        <div class="list-group">
+            <a asp-page="/AddAnItem" class="list-group-item list-group-item-action">Add an Item</a>
+            <a asp-page="/UpdateAnItem" class="list-group-item list-group-item-action">Update an Item</a>
+            <a asp-page="/DeleteAnItem" class="list-group-item list-group-item-action">Delete an Item</a>
+            <a asp-page="/AddACustomer" class="list-group-item list-group-item-action">Add a Customer</a>
+            <a asp-page="/UpdateACustomer" class="list-group-item list-group-item-action">Update a Customer</a>
+            <a asp-page="/DeleteACustomer" class="list-group-item list-group-item-action">Delete a Customer</a>
+            <a asp-page="/ProcessASale" class="list-group-item list-group-item-action">Process a Sale</a>
+        </div>
+    </div>
+</div>

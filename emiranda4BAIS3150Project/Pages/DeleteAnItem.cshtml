@@ -1,0 +1,60 @@
+﻿@page
+@model emiranda4BAIS3150Project.Pages.DeleteAnItemModel
+@{
+    ViewData["Title"] = "Delete an Item - emiranda4 BAIS3150 Project";
+}
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+<h1 class="display-4">Delete an Item</h1>
+<hr class="my-4">
+<div>
+    <h4 class="alert-success">@Model.FormMessage</h4>
+    <form method="post">
+        <div class="form-group row align-items-end">
+            <div class="col-2">
+                <label asp-for="ItemCode" class="form-label">Item Code</label>
+                <input type="text" asp-for="ItemCode" placeholder="ex. A12345" class="form-control">
+            </div>
+            <div class="col-auto">
+                <span asp-validation-for="ItemCode" class="alert-danger"></span>
+                <br />
+                <span class="alert-danger">@Model.ErrorMessage</span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col">
+                <button asp-page-handler="Search" class="btn btn-primary">Search</button>
+                <button asp-page-handler="Remove" class="btn btn-danger" disabled="@Model.Disable" onclick="return confirm('Are you sure you want to delete this?')">Delete</button>
+                <button asp-page-handler="Clear" class="btn btn-warning">Clear</button>
+            </div>
+        </div>
+    </form>
+</div>
+@if (Model.ExistingItem != null && !Model.Disable)
+{
+    <br />
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <caption>Item Information</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Item Code</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Unit Price</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Quantity on Hand</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.ExistingItem.ItemCode</td>
+                    <td>@Model.ExistingItem.Description</td>
+                    <td>@Model.ExistingItem.UnitPrice</td>
+                    <td>@Model.ExistingItem.Status</td>
+                    <td>@Model.ExistingItem.QuantityOnHand</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}

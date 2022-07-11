@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\Eron\source\repos\emiranda4BAIS3150Project\bin\Release\net5.0\publish\</_PublishTargetUrl>
+    <History>True|2021-12-18T00:38:05.6833251Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Persist Security Info=False%3bData Source=dev1.baist.ca%3bInitial Catalog=emiranda4%3bUser Id=emiranda4%3b Password=EMiranda22!%3bTrustServerCertificate=true</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
